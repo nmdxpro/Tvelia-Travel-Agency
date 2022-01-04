@@ -1,0 +1,150 @@
+.header {
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 30px;
+        padding-bottom: 44px;
+    }
+
+    @media screen and( max-width: $small) {
+        .container {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            display: block;
+            background: $dark;
+        }
+    }
+
+    &__logo {
+
+        span {
+            font-size: 48px;
+            line-height: 56.25px;
+            color: $primary;
+        }
+    }
+
+    @media screen and( max-width: $small) {
+
+        &__logo {
+            display: flex;
+            justify-content: space-between;
+            background: $dark;
+            position: relative;
+        }
+
+        h2 {
+            color: $white;
+        }
+    }
+
+    &__nav {
+
+        ul {
+            display: flex;
+            column-gap: 63px;
+        }
+
+        a {
+            font-size: 20px;
+            line-height: 23.44px;
+            
+        }
+
+        a:hover {
+            border-bottom: 2px solid $primary;
+        }
+    }
+
+    @media screen and( max-width: $small) {
+
+        &__nav {
+            max-height: 0px;
+            transition: all 0.5s ease;
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+            background: $dark;
+            width: 100%;
+            right: 0;
+        }
+
+        ul {
+            display: block;
+            text-align: center;
+        }
+
+        li {
+            padding-bottom: 12px;
+        }
+
+        a {
+            color: $white;
+        }
+    }
+
+    //toggle
+    .nav-toggler { 
+        background-color: $dark;
+        cursor: pointer;
+        border: none;
+        display: none;
+        position: absolute;
+        height: 14px;
+        right: 0;
+        top: 21px;
+    }
+
+    .nav-toggler span {
+        height: 2px;
+        width: 20px;
+        background-color: $white;
+        display: block;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggler.active span {
+        background-color: transparent;
+    }
+
+    .nav-toggler span::before,
+    .nav-toggler span::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggler span::before {
+        transform: translateY(-6px);
+    }
+
+    .nav-toggler.active span::before {
+        transform: rotate(45deg);
+    }
+
+    .nav-toggler span::after {
+        transform: translateY(6px);
+    }
+
+    .nav-toggler.active span::after {
+        transform: rotate(135deg);
+    }
+
+    @media screen and( max-width: $small) {
+
+        .nav-toggler {
+            display: block;
+        }
+
+        .header__nav.open {
+            visibility: visible;
+        }
+    }
+}
