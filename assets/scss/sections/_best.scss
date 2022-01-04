@@ -41,10 +41,11 @@
         height: 468.34px;
     }
 
-    &__content {
-        .frame1, .item1__img1 {
-            width: 100%;
-            
+    @media screen and( max-width: $small) {
+        &__content {
+            .frame1, .item1__img1 {
+                width: 100%;
+            }
         }
     }
 
